@@ -1,0 +1,307 @@
+/* ==========================================================================
+   Through the Shelter Door — FIT3179 Data Visualisation 2
+   Layout: 12-column grid, max 1120px, 32px gutters.
+   Sight lines: narrative text always occupies columns 1–4, charts 5–12,
+   so every section shares the same two vertical alignment lines.
+   ========================================================================== */
+
+:root {
+  --bg: #FBF8F3;
+  --card: #FFFFFF;
+  --ink: #2B2722;
+  --ink-2: #4A453F;
+  --muted: #6E675E;
+  --rule: #E4DED4;
+  --accent: #0D5560;      /* teal: used for emphasis + key numbers */
+  --accent-soft: #E3EDEE;
+  --dogs: #1F6FB5;
+  --cats: #D98200;
+  --cats-text: #9A5C00;   /* darker amber for text (contrast) */
+  --wildlife: #16956A;
+  --pets: #A05CC4;
+  --stock: #9C5A1F;
+  --euth: #4A3B52;
+
+  --max: 1120px;
+  --gutter: 32px;
+  --display: "Fraunces", Georgia, serif;
+  --body: "Nunito Sans", "Segoe UI", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); text-underline-offset: 2px; }
+a:hover { text-decoration-thickness: 2px; }
+
+/* ---------- grid ---------- */
+.wrap {
+  max-width: calc(var(--max) + 2 * var(--gutter));
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  row-gap: 28px;
+}
+.col-text  { grid-column: 1 / span 4; }
+.col-chart { grid-column: 5 / span 8; }
+.col-half-l { grid-column: 1 / span 6; }
+.col-half-r { grid-column: 7 / span 6; }
+.col-full  { grid-column: 1 / -1; }
+.col-lede  { grid-column: 1 / span 8; }
+.col-aside { grid-column: 9 / span 4; }
+.col-third-1 { grid-column: 1 / span 4; }
+.col-third-2 { grid-column: 5 / span 4; }
+.col-third-3 { grid-column: 9 / span 4; }
+
+/* ---------- hero ---------- */
+.hero {
+  padding: 56px 0 40px;
+  border-bottom: 1px solid var(--rule);
+}
+.kicker {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 14px;
+}
+h1 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(40px, 5.2vw, 62px);
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+  margin: 0 0 18px;
+  font-variation-settings: "SOFT" 50, "opsz" 144;
+}
+.deck {
+  font-size: 21px;
+  line-height: 1.5;
+  color: var(--ink-2);
+  margin: 0 0 22px;
+  max-width: 34em;
+}
+.byline {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 0;
+}
+.byline strong { color: var(--ink); }
+
+/* stat strip — four equal cards on the 12-col grid (3 cols each) */
+.stats {
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 1px solid var(--rule);
+}
+.stat { grid-column: span 3; }
+.stat .num {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 1;
+  color: var(--ink);
+  display: block;
+  margin-bottom: 8px;
+}
+.stat .num.accent { color: var(--accent); }
+.stat .lbl { font-size: 15px; color: var(--ink-2); line-height: 1.4; display: block; }
+
+/* reading guide */
+.guide {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  padding: 22px 26px;
+  margin-top: 36px;
+}
+.guide h2 {
+  font-family: var(--body);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 12px;
+}
+.guide dl { margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px 32px; }
+.guide dt { font-weight: 800; font-size: 15px; }
+.guide dd { margin: 0; font-size: 14.5px; color: var(--ink-2); line-height: 1.45; }
+
+/* species key — the colour legend used across the whole page */
+.key { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 16px; font-size: 14.5px; font-weight: 700; }
+.key span { display: inline-flex; align-items: center; gap: 7px; }
+.key i { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+
+/* ---------- sections ---------- */
+section.chapter { padding: 64px 0 8px; }
+section.chapter + section.chapter { border-top: 1px solid var(--rule); }
+
+.sec-head { margin-bottom: 8px; }
+.sec-num {
+  font-family: var(--display);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 4px;
+}
+h2.sec-title {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 38px;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  margin: 0 0 12px;
+}
+.sec-intro { font-size: 19px; color: var(--ink-2); margin: 0; max-width: 40em; }
+
+.col-text p { margin: 0 0 14px; max-width: 34em; }
+.col-text h3 {
+  font-family: var(--body);
+  font-weight: 800;
+  font-size: 19px;
+  line-height: 1.3;
+  margin: 4px 0 10px;
+}
+.col-text .callout {
+  border-left: 3px solid var(--accent);
+  padding: 2px 0 2px 14px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.hl { font-weight: 800; color: var(--accent); }
+.c-dogs { color: var(--dogs); font-weight: 800; }
+.c-cats { color: var(--cats-text); font-weight: 800; }
+.c-wild { color: #0F6B4C; font-weight: 800; }
+.c-euth { color: var(--euth); font-weight: 800; }
+
+/* ---------- chart cards ---------- */
+figure.card {
+  margin: 0;
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  padding: 20px 22px 14px;
+}
+figure.card h3 {
+  font-family: var(--body);
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.3;
+  margin: 0 0 2px;
+}
+figure.card .sub { font-size: 14px; color: var(--muted); margin: 0 0 12px; line-height: 1.4; }
+.chart { width: 100%; }
+.chart.tall { min-height: 440px; }
+figure.card figcaption {
+  font-size: 12.5px;
+  color: var(--muted);
+  border-top: 1px solid var(--rule);
+  margin-top: 10px;
+  padding-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+figure.card figcaption a { color: var(--muted); }
+.how {
+  font-size: 13.5px;
+  color: var(--ink-2);
+  background: var(--accent-soft);
+  border-radius: 6px;
+  padding: 6px 10px;
+  margin: 0 0 10px;
+}
+.how b { color: var(--accent); }
+
+/* vega binding (dropdown) */
+.vega-bindings { margin: 0 0 6px; font-size: 14px; font-weight: 700; }
+.vega-bind select {
+  font: inherit; font-weight: 700;
+  padding: 4px 8px; margin-left: 6px;
+  border: 1px solid #C9C1B5; border-radius: 6px; background: #fff; color: var(--ink);
+}
+
+/* vega tooltip */
+#vg-tooltip-element {
+  font-family: var(--body) !important;
+  font-size: 13px !important;
+  border-radius: 6px !important;
+  border: 1px solid var(--rule) !important;
+  box-shadow: 0 4px 14px rgba(43, 39, 34, 0.12) !important;
+}
+#vg-tooltip-element td.key { color: var(--muted) !important; }
+
+/* ---------- conclusion ---------- */
+.takeaway {
+  border-top: 4px solid var(--accent);
+  padding-top: 14px;
+}
+.takeaway h3 { font-family: var(--display); font-size: 23px; line-height: 1.2; margin: 0 0 8px; }
+.takeaway p { margin: 0; font-size: 16px; color: var(--ink-2); }
+
+.act {
+  background: var(--ink);
+  color: #F4EFE7;
+  border-radius: 12px;
+  padding: 28px 32px;
+}
+.act h3 { font-family: var(--display); font-size: 26px; margin: 0 0 10px; color: #fff; }
+.act ul { margin: 0; padding-left: 20px; columns: 2; column-gap: 40px; }
+.act li { margin: 0 0 8px; break-inside: avoid; }
+.act a { color: #9FD3D8; }
+
+/* ---------- footer / metadata ---------- */
+footer {
+  margin-top: 64px;
+  padding: 40px 0 56px;
+  border-top: 1px solid var(--rule);
+  font-size: 14px;
+  color: var(--ink-2);
+}
+footer h2 {
+  font-family: var(--body);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 10px;
+}
+footer ol, footer ul { margin: 0; padding-left: 18px; }
+footer li { margin-bottom: 6px; }
+footer p { margin: 0 0 8px; }
+
+/* ---------- small screens (single column) ---------- */
+@media (max-width: 900px) {
+  .col-text, .col-chart, .col-half-l, .col-half-r, .col-lede, .col-aside,
+  .col-third-1, .col-third-2, .col-third-3, .stat { grid-column: 1 / -1; }
+  .guide dl { grid-template-columns: 1fr; }
+  .act ul { columns: 1; }
+}
+
+/* put Vega dropdowns above their chart */
+.vega-embed { display: flex !important; flex-direction: column; }
+.vega-embed .vega-bindings { order: -1; margin-bottom: 8px; }
+.col-lede h3.inline-h { font-size: 19px; font-weight: 800; line-height: 1.3; margin: 4px 0 10px; }
+.col-lede > p { margin: 0 0 14px; max-width: 40em; }
+.col-aside .callout { margin-top: 34px; }
+.col-aside .callout, .col-text .callout { border-left: 3px solid var(--accent); padding: 2px 0 2px 14px; font-weight: 700; }
