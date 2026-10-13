@@ -43,8 +43,8 @@
       },
       "mark": {
         "type": "geoshape",
-        "fill": "#ECE6DC",
-        "stroke": "#FBF8F3",
+        "fill": "#22395A",
+        "stroke": "#172A45",
         "strokeWidth": 1.5
       }
     },
@@ -73,7 +73,7 @@
       ],
       "mark": {
         "type": "geoshape",
-        "stroke": "#FBF8F3",
+        "stroke": "#172A45",
         "strokeWidth": 1.5
       },
       "encoding": {
@@ -89,11 +89,11 @@
             "type": "quantize",
             "nice": true,
             "range": [
-              "#E3EDEE",
-              "#AFCFD3",
-              "#6FA8B0",
-              "#357F8A",
-              "#0D5560"
+              "#21456B",
+              "#2A6A8E",
+              "#3593AE",
+              "#5DBCCB",
+              "#A6E6EA"
             ]
           },
           "legend": {
@@ -197,9 +197,9 @@
         "color": {
           "condition": {
             "test": "datum.per_10k_2425 > 0.55 * datum.mx && datum.state != 'ACT'",
-            "value": "#FFFFFF"
+            "value": "#0F1B2D"
           },
-          "value": "#2B2722"
+          "value": "#E9EEF5"
         }
       }
     }

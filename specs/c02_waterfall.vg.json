@@ -121,7 +121,7 @@
       ],
       "mark": {
         "type": "bar",
-        "color": "#5E5850",
+        "color": "#52668A",
         "cornerRadiusTopLeft": 3,
         "cornerRadiusTopRight": 3
       },
@@ -175,7 +175,7 @@
         "dy": -9,
         "fontWeight": 700,
         "fontSize": 12,
-        "color": "#2B2722"
+        "color": "#E9EEF5"
       },
       "encoding": {
         "y": {
@@ -211,9 +211,9 @@
               "Wildlife & other"
             ],
             "range": [
-              "#1F6FB5",
-              "#D98200",
-              "#8C857B"
+              "#3A93E0",
+              "#E26A3A",
+              "#7D8FA9"
             ]
           }
         },
@@ -246,7 +246,7 @@
         "dy": 12,
         "fontWeight": 700,
         "fontSize": 12,
-        "color": "#2B2722",
+        "color": "#E9EEF5",
         "baseline": "top"
       },
       "encoding": {
@@ -280,7 +280,7 @@
       ],
       "mark": {
         "type": "bar",
-        "color": "#2B2722",
+        "color": "#E9EEF5",
         "cornerRadiusTopLeft": 3,
         "cornerRadiusTopRight": 3
       },
@@ -326,7 +326,7 @@
         "dy": -9,
         "fontWeight": 700,
         "fontSize": 12,
-        "color": "#2B2722"
+        "color": "#E9EEF5"
       },
       "encoding": {
         "y": {

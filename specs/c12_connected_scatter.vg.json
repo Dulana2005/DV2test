@@ -60,7 +60,7 @@
     {
       "mark": {
         "type": "trail",
-        "color": "#8C857B"
+        "color": "#7D8FA9"
       },
       "encoding": {
         "order": {
@@ -84,16 +84,16 @@
         "type": "point",
         "filled": true,
         "size": 120,
-        "stroke": "#FBF8F3",
+        "stroke": "#172A45",
         "strokeWidth": 2
       },
       "encoding": {
         "color": {
           "condition": {
             "test": "datum.year == '2024-25'",
-            "value": "#0D5560"
+            "value": "#FFB547"
           },
-          "value": "#5E5850"
+          "value": "#52668A"
         },
         "tooltip": [
           {
@@ -128,7 +128,7 @@
         "type": "text",
         "fontSize": 11.5,
         "dy": -14,
-        "color": "#6E675E"
+        "color": "#9DAEC4"
       },
       "encoding": {
         "text": {
@@ -147,7 +147,7 @@
         "fontSize": 12,
         "dy": -14,
         "fontWeight": 700,
-        "color": "#0D5560"
+        "color": "#FFB547"
       },
       "encoding": {
         "text": {
@@ -175,7 +175,7 @@
         "align": "left",
         "fontSize": 11.5,
         "fontStyle": "italic",
-        "color": "#0D5560"
+        "color": "#FFB547"
       },
       "encoding": {
         "x": {

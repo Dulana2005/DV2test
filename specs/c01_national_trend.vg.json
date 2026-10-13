@@ -48,9 +48,9 @@
           "Wildlife & other animals"
         ],
         "range": [
-          "#1F6FB5",
-          "#D98200",
-          "#8C857B"
+          "#3A93E0",
+          "#E26A3A",
+          "#7D8FA9"
         ]
       }
     }
@@ -82,7 +82,7 @@
         "type": "point",
         "filled": true,
         "size": 70,
-        "stroke": "#FBF8F3",
+        "stroke": "#172A45",
         "strokeWidth": 2
       },
       "encoding": {
@@ -129,7 +129,7 @@
           "field": "series"
         },
         "color": {
-          "value": "#2B2722"
+          "value": "#E9EEF5"
         }
       }
     },
@@ -146,7 +146,7 @@
         "dy": -16,
         "fontSize": 12,
         "fontStyle": "italic",
-        "color": "#6E675E"
+        "color": "#9DAEC4"
       },
       "encoding": {
         "text": {
@@ -167,7 +167,7 @@
         "dy": -16,
         "fontSize": 12,
         "fontWeight": 700,
-        "color": "#9A5C00"
+        "color": "#F49A72"
       },
       "encoding": {
         "text": {

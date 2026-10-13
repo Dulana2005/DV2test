@@ -1,35 +1,28 @@
-// Embeds every chart on the page with vega-embed.
-// Each chart's JSON specification lives in /specs so it can be read on its own.
+// Embeds every chart on the page with vega-embed and drives the sticky
+// scrollytelling text. Each chart's JSON specification lives in /specs.
 
+const FONT = "IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif";
+
+// Shared dark theme for every chart
 const theme = {
   background: null,
-  font: "Nunito Sans, Segoe UI, Helvetica, Arial, sans-serif",
+  font: FONT,
   view: { stroke: null },
   axis: {
-    labelFont: "Nunito Sans, Segoe UI, Helvetica, Arial, sans-serif",
-    titleFont: "Nunito Sans, Segoe UI, Helvetica, Arial, sans-serif",
-    labelFontSize: 12,
-    titleFontSize: 12.5,
-    titleFontWeight: 700,
-    labelColor: "#4A453F",
-    titleColor: "#4A453F",
-    domainColor: "#C9C1B5",
-    tickColor: "#C9C1B5",
-    gridColor: "#EDE8E0",
-    gridWidth: 1
+    labelFont: FONT, titleFont: FONT,
+    labelFontSize: 12, titleFontSize: 12.5, titleFontWeight: 600,
+    labelColor: "#9DAEC4", titleColor: "#9DAEC4",
+    domainColor: "#3A5275", tickColor: "#3A5275",
+    gridColor: "#24395A", gridWidth: 1
   },
   legend: {
-    labelFont: "Nunito Sans, Segoe UI, Helvetica, Arial, sans-serif",
-    titleFont: "Nunito Sans, Segoe UI, Helvetica, Arial, sans-serif",
-    labelFontSize: 12.5,
-    titleFontSize: 12.5,
-    titleFontWeight: 800,
-    labelColor: "#2B2722",
-    titleColor: "#2B2722"
+    labelFont: FONT, titleFont: FONT,
+    labelFontSize: 12.5, titleFontSize: 12.5, titleFontWeight: 700,
+    labelColor: "#E9EEF5", titleColor: "#E9EEF5"
   },
-  header: { labelFont: "Nunito Sans, Segoe UI, Helvetica, Arial, sans-serif", titleFont: "Nunito Sans, Segoe UI, Helvetica, Arial, sans-serif", labelColor: "#2B2722" },
-  text: { font: "Nunito Sans, Segoe UI, Helvetica, Arial, sans-serif" },
-  title: { font: "Fraunces" }
+  header: { labelFont: FONT, titleFont: FONT, labelColor: "#E9EEF5" },
+  text: { font: FONT, color: "#E9EEF5" },
+  title: { font: FONT, color: "#E9EEF5" }
 };
 
 // [element id, spec file]
@@ -50,23 +43,59 @@ const charts = [
 ];
 
 async function embedAll() {
-  // wait for web fonts so chart labels are measured with the right typeface
   if (document.fonts && document.fonts.ready) {
-    try { await document.fonts.ready; } catch (e) { /* continue anyway */ }
+    try { await document.fonts.ready; } catch (e) { /* continue */ }
   }
   for (const [el, url] of charts) {
     const target = document.querySelector(el);
     if (!target) continue;
     const opts = { actions: false, renderer: "svg", config: theme };
-    // The treemap is a full Vega spec, so give it the card's width explicitly
-    if (url.includes("treemap")) {
-      opts.width = Math.max(320, Math.floor(target.clientWidth));
-    }
+    if (url.includes("treemap")) opts.width = Math.max(320, Math.floor(target.clientWidth));
     vegaEmbed(el, url, opts).catch((err) => {
-      target.innerHTML = '<p style="color:#9A5C00">Chart failed to load: ' + err.message + "</p>";
+      target.innerHTML = '<p class="err">Chart failed to load: ' + err.message + "</p>";
       console.error(url, err);
     });
   }
 }
 
+// ---- Scrollytelling: show the story step that matches the chart in view ----
+function setupSteps() {
+  const wide = window.matchMedia("(min-width: 960px)");
+  document.querySelectorAll(".story").forEach((story) => {
+    const steps = story.querySelectorAll(".step");
+    const cards = story.querySelectorAll("figure.card[data-step]");
+    const counter = story.querySelector(".step-count");
+    const activate = (n) => {
+      steps.forEach((s) => s.classList.toggle("active", s.dataset.step === n));
+      cards.forEach((c) => c.classList.toggle("in-view", c.dataset.step === n));
+      if (counter) counter.textContent = n + " / " + cards.length;
+    };
+    activate(cards[0] ? cards[0].dataset.step : "1");
+    const io = new IntersectionObserver((entries) => {
+      if (!wide.matches) return;
+      entries.forEach((e) => { if (e.isIntersecting) activate(e.target.dataset.step); });
+    }, { rootMargin: "-45% 0px -45% 0px" });
+    cards.forEach((c) => io.observe(c));
+  });
+}
+
+// ---- Reading progress bar + active nav link ----
+function setupProgress() {
+  const bar = document.querySelector(".progress span");
+  const links = [...document.querySelectorAll(".topnav a[href^='#']")];
+  const secs = links.map((a) => document.querySelector(a.getAttribute("href")));
+  const onScroll = () => {
+    const h = document.documentElement;
+    const p = h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight);
+    if (bar) bar.style.width = (p * 100).toFixed(1) + "%";
+    let idx = -1;
+    secs.forEach((s, i) => { if (s && s.getBoundingClientRect().top < window.innerHeight * 0.35) idx = i; });
+    links.forEach((a, i) => a.classList.toggle("on", i === idx));
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+}
+
 embedAll();
+setupSteps();
+setupProgress();

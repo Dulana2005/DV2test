@@ -25,8 +25,8 @@
       },
       "mark": {
         "type": "geoshape",
-        "fill": "#F1ECE3",
-        "stroke": "#CFC7BA",
+        "fill": "#22395A",
+        "stroke": "#33507A",
         "strokeWidth": 1
       }
     },
@@ -73,11 +73,11 @@
               "Livestock & horses"
             ],
             "range": [
-              "#1F6FB5",
-              "#D98200",
-              "#16956A",
-              "#A05CC4",
-              "#9C5A1F"
+              "#3A93E0",
+              "#E26A3A",
+              "#1FA982",
+              "#977AE6",
+              "#B88826"
             ]
           },
           "legend": {
@@ -127,7 +127,7 @@
         "type": "text",
         "fontSize": 12.5,
         "fontWeight": 800,
-        "color": "#2B2722"
+        "color": "#E9EEF5"
       },
       "encoding": {
         "longitude": {
@@ -163,7 +163,7 @@
         "align": "left",
         "fontSize": 11.5,
         "fontStyle": "italic",
-        "color": "#0F6B4C"
+        "color": "#5FD3AD"
       },
       "encoding": {
         "longitude": {

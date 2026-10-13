@@ -39,7 +39,7 @@
         "labelFontWeight": 700,
         "labelFontSize": 13,
         "grid": true,
-        "gridColor": "#D8D1C6"
+        "gridColor": "#2C4467"
       }
     },
     "y": {
@@ -65,9 +65,9 @@
           "Wildlife & other"
         ],
         "range": [
-          "#1F6FB5",
-          "#B8B0A4",
-          "#B8B0A4"
+          "#3A93E0",
+          "#5C6F8E",
+          "#5C6F8E"
         ]
       }
     },
@@ -96,7 +96,7 @@
         "type": "point",
         "filled": true,
         "size": 90,
-        "stroke": "#FBF8F3",
+        "stroke": "#172A45",
         "strokeWidth": 2
       },
       "encoding": {
@@ -140,7 +140,7 @@
         "dy": 7,
         "fontSize": 12,
         "fontWeight": 700,
-        "color": "#174F80"
+        "color": "#7DB9F2"
       },
       "encoding": {
         "text": {
@@ -161,7 +161,7 @@
         "dy": -6,
         "fontSize": 12,
         "fontWeight": 400,
-        "color": "#6E675E"
+        "color": "#9DAEC4"
       },
       "encoding": {
         "text": {
@@ -182,7 +182,7 @@
         "dy": 0,
         "fontSize": 12,
         "fontWeight": 400,
-        "color": "#6E675E"
+        "color": "#9DAEC4"
       },
       "encoding": {
         "text": {
@@ -203,7 +203,7 @@
         "dy": 0,
         "fontSize": 12,
         "fontWeight": 700,
-        "color": "#174F80"
+        "color": "#7DB9F2"
       },
       "encoding": {
         "text": {
@@ -225,7 +225,7 @@
         "dy": 0,
         "fontSize": 12,
         "fontWeight": 400,
-        "color": "#6E675E"
+        "color": "#9DAEC4"
       },
       "encoding": {
         "text": {

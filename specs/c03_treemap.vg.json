@@ -135,11 +135,11 @@
         "Livestock & horses"
       ],
       "range": [
-        "#1F6FB5",
-        "#D98200",
-        "#16956A",
-        "#A05CC4",
-        "#9C5A1F"
+        "#3A93E0",
+        "#E26A3A",
+        "#1FA982",
+        "#977AE6",
+        "#B88826"
       ]
     }
   ],
@@ -164,7 +164,7 @@
             "field": "y1"
           },
           "fill": {
-            "value": "#FBF8F3"
+            "value": "#172A45"
           }
         }
       }
@@ -192,7 +192,7 @@
             "value": 700
           },
           "fill": {
-            "value": "#2B2722"
+            "value": "#E9EEF5"
           },
           "limit": {
             "signal": "datum.x1 - datum.x0 - 4"
@@ -266,7 +266,7 @@
             "value": 700
           },
           "fill": {
-            "value": "#FFFFFF"
+            "value": "#0F1B2D"
           }
         }
       }
@@ -292,7 +292,7 @@
             "value": 11
           },
           "fill": {
-            "value": "#FFFFFF"
+            "value": "#0F1B2D"
           }
         }
       }

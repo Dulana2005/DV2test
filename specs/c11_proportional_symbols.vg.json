@@ -25,16 +25,16 @@
       },
       "mark": {
         "type": "geoshape",
-        "stroke": "#FBF8F3",
+        "stroke": "#172A45",
         "strokeWidth": 1.5
       },
       "encoding": {
         "fill": {
           "condition": {
             "test": "datum.properties.state == 'NT'",
-            "value": "#F6F2EC"
+            "value": "#1A2E4C"
           },
-          "value": "#E6E0D6"
+          "value": "#22395A"
         }
       }
     },
@@ -59,7 +59,7 @@
       ],
       "mark": {
         "type": "circle",
-        "stroke": "#FBF8F3",
+        "stroke": "#172A45",
         "strokeWidth": 1.5,
         "opacity": 0.92
       },
@@ -91,8 +91,8 @@
               15000
             ],
             "format": ",d",
-            "symbolFillColor": "#C9C1B5",
-            "symbolStrokeColor": "#8C857B",
+            "symbolFillColor": "#3F5679",
+            "symbolStrokeColor": "#7D8FA9",
             "title": [
               "Complaints",
               "investigated"
@@ -109,8 +109,8 @@
               35
             ],
             "range": [
-              "#AFCFD3",
-              "#0D5560"
+              "#2A6A8E",
+              "#A6E6EA"
             ]
           },
           "legend": {
@@ -189,7 +189,7 @@
         "type": "text",
         "fontSize": 11.5,
         "fontWeight": 700,
-        "color": "#2B2722",
+        "color": "#E9EEF5",
         "baseline": "top"
       },
       "encoding": {
@@ -225,7 +225,7 @@
         "type": "text",
         "fontSize": 11,
         "fontStyle": "italic",
-        "color": "#8C857B"
+        "color": "#7D8FA9"
       },
       "encoding": {
         "longitude": {

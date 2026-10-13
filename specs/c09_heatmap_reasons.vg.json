@@ -56,7 +56,7 @@
     }
   },
   "spec": {
-    "width": 380,
+    "width": 340,
     "height": 170,
     "encoding": {
       "x": {
@@ -100,7 +100,7 @@
       {
         "mark": {
           "type": "rect",
-          "stroke": "#FBF8F3",
+          "stroke": "#172A45",
           "strokeWidth": 2,
           "cornerRadius": 2
         },
@@ -115,18 +115,17 @@
                 1
               ],
               "range": [
-                "#F3EFF4",
-                "#4A3B52"
+                "#1F3556",
+                "#E8668F"
               ]
             },
             "legend": {
               "format": ".0%",
-              "orient": "right",
-              "gradientLength": 140,
-              "title": [
-                "Share of",
-                "euthanasias"
-              ]
+              "orient": "bottom",
+              "direction": "horizontal",
+              "gradientLength": 200,
+              "title": "Share of this state's euthanasias",
+              "titleLimit": 260
             }
           },
           "tooltip": [
@@ -173,9 +172,9 @@
           "color": {
             "condition": {
               "test": "datum.share > 0.45",
-              "value": "#FFFFFF"
+              "value": "#0F1B2D"
             },
-            "value": "#2B2722"
+            "value": "#E9EEF5"
           }
         }
       }

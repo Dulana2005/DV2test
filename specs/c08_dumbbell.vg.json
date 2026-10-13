@@ -66,7 +66,7 @@
     {
       "mark": {
         "type": "rule",
-        "color": "#B8B0A4",
+        "color": "#5C6F8E",
         "strokeWidth": 2
       },
       "encoding": {
@@ -80,7 +80,7 @@
         "type": "point",
         "filled": true,
         "size": 110,
-        "stroke": "#FBF8F3",
+        "stroke": "#172A45",
         "strokeWidth": 1.5
       },
       "encoding": {
@@ -94,8 +94,8 @@
               "2024–25"
             ],
             "range": [
-              "#B8B0A4",
-              "#2B2722"
+              "#5C6F8E",
+              "#E9EEF5"
             ]
           },
           "legend": {
@@ -149,9 +149,9 @@
         "color": {
           "condition": {
             "test": "datum.pct_change > 0",
-            "value": "#0D5560"
+            "value": "#FFB547"
           },
-          "value": "#6E675E"
+          "value": "#9DAEC4"
         }
       }
     }
